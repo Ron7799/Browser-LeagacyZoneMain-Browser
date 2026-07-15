@@ -144,24 +144,18 @@ passport.authenticate("discord")
 
 
 app.get("/auth/discord/callback",
+    passport.authenticate("discord", {
+        failureRedirect: "/login.html"
+    }),
+    (req,res)=>{
 
-passport.authenticate("discord",{
-    failureRedirect:"/login.html"
-}),
+        console.log("LOGIN SUCCESS");
+        console.log(req.user);
 
-(req,res)=>{
-
-
-    if(!isAdmin(req)){
-
-        return res.send("❌ אין לך הרשאה לפאנל");
+        res.send("התחברת בהצלחה: " + req.user.username);
 
     }
-
-
-    res.redirect("/admin");
-
-});
+);
 
 
 
