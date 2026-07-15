@@ -146,9 +146,7 @@ passport.authenticate("discord")
 app.get("/auth/discord/callback",
 
 passport.authenticate("discord",{
-
     failureRedirect:"/login.html"
-
 }),
 
 (req,res)=>{
