@@ -23,11 +23,11 @@ app.use(express.urlencoded({
 
 app.use(session({
 
-    secret: process.env.SESSION_SECRET || "secret",
+    secret: "legacyzone-secret",
 
     resave: false,
 
-    saveUninitialized: false
+    saveUninitialized: true
 
 }));
 
